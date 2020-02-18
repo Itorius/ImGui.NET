@@ -292,7 +292,7 @@ namespace CodeGenerator
                 using (CSharpCodeWriter writer = new CSharpCodeWriter(Path.Combine(outputPath, td.Name + ".gen.cs")))
                 {
                     writer.Using("System");
-                    writer.Using("System.Numerics");
+                    writer.Using("OpenTK");
                     writer.Using("System.Runtime.CompilerServices");
                     writer.Using("System.Text");
                     writer.WriteLine(string.Empty);
@@ -456,7 +456,7 @@ namespace CodeGenerator
             using (CSharpCodeWriter writer = new CSharpCodeWriter(Path.Combine(outputPath, "ImGuiNative.gen.cs")))
             {
                 writer.Using("System");
-                writer.Using("System.Numerics");
+                writer.Using("OpenTK");
                 writer.Using("System.Runtime.InteropServices");
                 writer.WriteLine(string.Empty);
                 writer.PushBlock("namespace ImGuiNET");
@@ -522,7 +522,7 @@ namespace CodeGenerator
             using (CSharpCodeWriter writer = new CSharpCodeWriter(Path.Combine(outputPath, "ImGui.gen.cs")))
             {
                 writer.Using("System");
-                writer.Using("System.Numerics");
+                writer.Using("OpenTK");
                 writer.Using("System.Runtime.InteropServices");
                 writer.Using("System.Text");
                 writer.WriteLine(string.Empty);
