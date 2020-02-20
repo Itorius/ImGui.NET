@@ -1,5 +1,6 @@
 using System;
 using OpenTK;
+using OpenTK.Graphics;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -1354,7 +1355,7 @@ namespace ImGuiNET
             p_open = native_p_open_val != 0;
             return ret != 0;
         }
-        public static bool ColorButton(string desc_id, Vector4 col)
+        public static bool ColorButton(string desc_id, Color4 col)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -1383,7 +1384,7 @@ namespace ImGuiNET
             }
             return ret != 0;
         }
-        public static bool ColorButton(string desc_id, Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorButton(string desc_id, Color4 col, ImGuiColorEditFlags flags)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -1411,7 +1412,7 @@ namespace ImGuiNET
             }
             return ret != 0;
         }
-        public static bool ColorButton(string desc_id, Vector4 col, ImGuiColorEditFlags flags, Vector2 size)
+        public static bool ColorButton(string desc_id, Color4 col, ImGuiColorEditFlags flags, Vector2 size)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -1469,9 +1470,9 @@ namespace ImGuiNET
                 }
             }
         }
-        public static Vector4 ColorConvertU32ToFloat4(uint @in)
+        public static Color4 colorConvertU32ToFloat4(uint @in)
         {
-            Vector4 ret = ImGuiNative.igColorConvertU32ToFloat4(@in);
+            Color4 ret = ImGuiNative.igColorConvertU32ToFloat4(@in);
             return ret;
         }
         public static bool ColorEdit3(string label, ref Vector3 col)
@@ -1535,7 +1536,7 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
-        public static bool ColorEdit4(string label, ref Vector4 col)
+        public static bool ColorEdit4(string label, ref Color4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1556,7 +1557,7 @@ namespace ImGuiNET
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector4* native_col = &col)
+            fixed (Color4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -1566,7 +1567,7 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
-        public static bool ColorEdit4(string label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorEdit4(string label, ref Color4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1586,7 +1587,7 @@ namespace ImGuiNET
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (Color4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -1657,7 +1658,7 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
-        public static bool ColorPicker4(string label, ref Vector4 col)
+        public static bool ColorPicker4(string label, ref Color4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1679,7 +1680,7 @@ namespace ImGuiNET
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (Color4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -1689,7 +1690,7 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
-        public static bool ColorPicker4(string label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorPicker4(string label, ref Color4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1710,7 +1711,7 @@ namespace ImGuiNET
             }
             else { native_label = null; }
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (Color4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -1720,7 +1721,7 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
-        public static bool ColorPicker4(string label, ref Vector4 col, ImGuiColorEditFlags flags, ref float ref_col)
+        public static bool ColorPicker4(string label, ref Color4 col, ImGuiColorEditFlags flags, ref float ref_col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1740,7 +1741,7 @@ namespace ImGuiNET
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (Color4* native_col = &col)
             {
                 fixed (float* native_ref_col = &ref_col)
                 {
@@ -5580,7 +5581,7 @@ namespace ImGuiNET
             uint ret = ImGuiNative.igGetColorU32(idx, alpha_mul);
             return ret;
         }
-        public static uint GetColorU32(Vector4 col)
+        public static uint GetColorU32(Color4 col)
         {
             uint ret = ImGuiNative.igGetColorU32Vec4(col);
             return ret;
@@ -9893,7 +9894,7 @@ namespace ImGuiNET
         {
             ImGuiNative.igPushStyleColorU32(idx, col);
         }
-        public static void PushStyleColor(ImGuiCol idx, Vector4 col)
+        public static void PushStyleColor(ImGuiCol idx, Color4 col)
         {
             ImGuiNative.igPushStyleColor(idx, col);
         }
@@ -12472,7 +12473,7 @@ namespace ImGuiNET
                 Util.Free(native_fmt);
             }
         }
-        public static void TextColored(Vector4 col, string fmt)
+        public static void TextColored(Color4 col, string fmt)
         {
             byte* native_fmt;
             int fmt_byteCount = 0;

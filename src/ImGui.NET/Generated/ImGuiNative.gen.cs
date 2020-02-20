@@ -1,5 +1,6 @@
 using System;
 using OpenTK;
+using OpenTK.Graphics;
 using System.Runtime.InteropServices;
 
 namespace ImGuiNET
@@ -77,7 +78,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igCollapsingHeaderBoolPtr(byte* label, byte* p_open, ImGuiTreeNodeFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igColorButton(byte* desc_id, Vector4 col, ImGuiColorEditFlags flags, Vector2 size);
+        public static extern byte igColorButton(byte* desc_id, Color4 col, ImGuiColorEditFlags flags, Vector2 size);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern uint igColorConvertFloat4ToU32(Vector4 @in);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -85,15 +86,15 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igColorConvertRGBtoHSV(float r, float g, float b, float* out_h, float* out_s, float* out_v);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl, EntryPoint = "igColorConvertU32ToFloat4_nonUDT2")]
-        public static extern Vector4 igColorConvertU32ToFloat4(uint @in);
+        public static extern Color4 igColorConvertU32ToFloat4(uint @in);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igColorEdit3(byte* label, Vector3* col, ImGuiColorEditFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igColorEdit4(byte* label, Vector4* col, ImGuiColorEditFlags flags);
+        public static extern byte igColorEdit4(byte* label, Color4* col, ImGuiColorEditFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igColorPicker3(byte* label, Vector3* col, ImGuiColorEditFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igColorPicker4(byte* label, Vector4* col, ImGuiColorEditFlags flags, float* ref_col);
+        public static extern byte igColorPicker4(byte* label, Color4* col, ImGuiColorEditFlags flags, float* ref_col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igColumns(int count, byte* id, byte border);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -169,7 +170,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern uint igGetColorU32(ImGuiCol idx, float alpha_mul);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern uint igGetColorU32Vec4(Vector4 col);
+        public static extern uint igGetColorU32Vec4(Color4 col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern uint igGetColorU32U32(uint col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -471,7 +472,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igPushStyleColorU32(ImGuiCol idx, uint col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igPushStyleColor(ImGuiCol idx, Vector4 col);
+        public static extern void igPushStyleColor(ImGuiCol idx, Color4 col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igPushStyleVarFloat(ImGuiStyleVar idx, float val);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -629,7 +630,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igText(byte* fmt);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igTextColored(Vector4 col, byte* fmt);
+        public static extern void igTextColored(Color4 col, byte* fmt);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igTextDisabled(byte* fmt);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -683,7 +684,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern ImColor* ImColor_ImColorFloat(float r, float g, float b, float a);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern ImColor* ImColor_ImColorVec4(Vector4 col);
+        public static extern ImColor* ImColor_ImColorVec4(Color4 col);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ImColor_SetHSV(ImColor* self, float h, float s, float v, float a);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
